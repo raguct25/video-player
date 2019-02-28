@@ -9,9 +9,8 @@ class VideoPlayer extends Component {
     this.state = { videoSource: null };
   }
 
-  playVideo = images => {
-    console.warn("data...", images[0]);
-    this.setState({ videoSource: images[0] });
+  playVideo = selectedVideo => {
+    this.setState({ videoSource: selectedVideo[0] });
   };
 
   render() {
@@ -19,7 +18,7 @@ class VideoPlayer extends Component {
       <View style={styles.container}>
         {this.state.videoSource === null ? (
           <MediaPicker
-            callback={images => this.playVideo(images)}
+            callback={selectedVideo => this.playVideo(selectedVideo)}
             groupTypes={"All"}
             assetType={"Videos"}
             imagesPerRow={3}
